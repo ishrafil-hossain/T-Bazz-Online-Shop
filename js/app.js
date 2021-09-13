@@ -1,4 +1,3 @@
-// const keys = `https://fakestoreapi.com/products/${id}`;
 
 // load data from fake store api 
 const loadProducts = () => {
@@ -11,7 +10,6 @@ loadProducts();
 
 // show all product in UI 
 const showProducts = (products) => {
-  console.log(products);
   const allProducts = products.map((pd) => pd);
   for (const product of allProducts) {
     const image = product.image;
@@ -27,7 +25,7 @@ const showProducts = (products) => {
       <p>Total rating : ${product.rating.count}</p>
       <p>Average rating : ${product.rating.rate}</p>
       <button onclick="addToCart(${product.id},${product.price})" id="addToCart-btn" class="buy-now btn btn-success">add to cart</button>
-      <button id="details-btn" class="btn btn-danger">Details</button></div>
+      <button onclick = "loadDetailsById(${product.id})" id="details-btn" class="btn btn-danger">Details</button></div>
       `;
     document.getElementById("all-products").appendChild(div);
   }
